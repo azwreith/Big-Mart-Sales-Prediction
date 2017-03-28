@@ -12,10 +12,6 @@ nRows <- nrow(train)
 nCompRows <- sum(complete.cases(train))
 nCompRows/nRows
 
-# Plotting the dependent variable distribution. It's seems like a half-normal distribution
-pl1 <- ggplot(train, aes(Item_Outlet_Sales))
-pl1 + geom_density(fill = "blue", alpha = "0.7")
-
 # Check fat levels
 train$Item_Fat_Content
 
@@ -107,7 +103,9 @@ sales_model <- lm(Item_Outlet_Sales ~ Item_Weight + Item_Fat_Content +
                          Outlet_Establishment_Year + Outlet_Size +
                          Outlet_Location_Type + Outlet_Type,
                        data = train)
+summary(sales_model)
 sales <- predict(sales_model, newdata = test_pred)
+
 test_pred$Item_Outlet_Sales <- as.vector(sales)
 
 # Rename the predicted sales column
