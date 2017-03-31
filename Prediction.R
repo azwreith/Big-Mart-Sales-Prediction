@@ -3,6 +3,7 @@ library(caTools)
 library(randomForest)
 library(glmnet)
 library(plyr)
+library(dplyr)
 
 train <- read.csv("Documents/GitHub/Big-Mart-Sales-Prediction/Train_UWu5bXk.csv")
 test <- read.csv("Documents/GitHub/Big-Mart-Sales-Prediction/Test_u94Q5KV.csv")
